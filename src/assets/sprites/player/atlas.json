@@ -1,7 +1,7 @@
 {
 	"textures": [
 		{
-			"image": "Chicken_black_5.png",
+			"image": "Chicken.png",
 			"format": "RGBA8888",
 			"size": {
 				"w": 6319,

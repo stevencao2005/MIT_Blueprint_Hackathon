@@ -4,9 +4,7 @@ import gearImg from '../assets/images/gear.png'
 import backgroundImg from "../assets/images/background.png";
 
 // import playerSheet from '../assets/sprites/player/sheet.png';
-// import playerAtlas from '../assets/sprites/player/atlas.json';
-
-import playerSheet from '../assets/sprites/player/Chicken_black_5.png';
+import playerSheet from '../assets/sprites/player/Chicken.png';
 import playerAtlas from '../assets/sprites/player/atlas.json';
 
 import enemySheet from '../assets/sprites/enemy/sheet.png';
