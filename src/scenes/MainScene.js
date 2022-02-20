@@ -119,17 +119,22 @@ export default class MainScene extends Phaser.Scene {
 
     this.player = new Player(this, x, y);
 
-    // Place 11 collectibles.
+    // Place 15 collectibles.
     this.collectibles = this.physics.add.group({
       key: 'trashcan',
       setScale: { x: 0.4, y: 0.4 },
-      repeat: 100,
+      repeat: 5,
       setXY: { x: 64, y: 0, stepX: 70 }
     });
 
     this.collectibles.children.iterate((child) => {
       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
     });
+
+    this.collectibles_num = this.collectibles.countActive(true)
+    this.text = this.add.text(16, 50, 'Collectibles Left: 100', { fontSize: '20px', fontFamily: 'VT323', fill: '#fff' });
+    this.text.setScrollFactor(0);
+
 
     // Place enemies.
     this.enemies = this.physics.add.group({
@@ -159,11 +164,19 @@ export default class MainScene extends Phaser.Scene {
     this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '20px', fontFamily: 'VT323', fill: '#fff' });
     this.scoreText.setScrollFactor(0);
 
+
   }
 
   update() {
     // Place your code to update objects here...
     this.player.update(this.cursors);
     this.scoreText.setText('Score: ' + this.score);
+    this.collectibles_num = this.collectibles.countActive(true)
+    this.text.setText('Collectibles Left: ' + this.collectibles_num)
+
+    if (this.collectibles_num == 0) {
+      this.end = this.add.text(200, 200, 'YOU FINISHED THE GAME', { fontSize: '100 px', fontFamily: 'VT323', fill: '#fff' });
+      this.end.setScrollFactor(0);
+    }
   }
 }
