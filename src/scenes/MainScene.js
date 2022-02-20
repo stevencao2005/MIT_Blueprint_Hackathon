@@ -158,6 +158,7 @@ export default class MainScene extends Phaser.Scene {
     // Create score text.
     this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '20px', fontFamily: 'VT323', fill: '#fff' });
     this.scoreText.setScrollFactor(0);
+
   }
 
   update() {

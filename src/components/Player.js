@@ -23,7 +23,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.damageTime = 0;
     this.damaging = false;
-
+    this.double = false;
     this.jumpFrames = 0
     this.dashImages = [];
     this.dashSteps = 0;
@@ -35,18 +35,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.setScale(1.2);
     this.body.setBounce(0.2);
     this.body.setGravityY(GRAVITY)
-    // if (y > 0) {
-    // this.body.setGravityY(GRAVITY);
-    // }
-    // if (y > 200){
-    //   this.body.setGravityY(GRAVITY-50)
-    // }
-    // if (y > 400){
-    //   this.body.setGravityY(GRAVITY-100)
-    // }
-    // if (y > 600){
-    //   this.body.setGravityY(GRAVITY-150)
-    // }
+
   }
 
   preUpdate(t, dt) {
@@ -211,10 +200,15 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     if (this.jumpFrames > 0 && cursors.up.isDown) {
       this.setVelocityY(-JUMP_VELOCITY);
     }
-
-    // if (cursors.space.isDown && this.canDash) {
-    //   const speed = Math.max(DASH_SPEED * (this.dashSteps / 20.0), BASE_SPEED);
-    //   this.setVelocityX(speed * this.lastDirectionX);
-    // }
+    
+    
+    if (cursors.space.isDown && this.canDash && !this.double) {
+      const speed = 1.5 * -JUMP_VELOCITY;
+      this.setVelocityY(speed * !this.lastDirectionY);
+      this.double = true
+    }
+    if (this.body.onFloor()) {
+      this.double = false
+    } 
   }
 }
