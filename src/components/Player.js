@@ -167,6 +167,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       if (this.y > 900){
         this.setGravityY(GRAVITY-200)
       }
+
+
+
+
       if (cursors.shift.isDown && this.canDash) {
         this.dashSteps = 20;
         this.canDash = false
@@ -207,5 +211,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     if (this.jumpFrames > 0 && cursors.up.isDown) {
       this.setVelocityY(-JUMP_VELOCITY);
     }
+
+    // if (cursors.space.isDown && this.canDash) {
+    //   const speed = Math.max(DASH_SPEED * (this.dashSteps / 20.0), BASE_SPEED);
+    //   this.setVelocityX(speed * this.lastDirectionX);
+    // }
   }
 }
