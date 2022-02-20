@@ -119,11 +119,11 @@ export default class MainScene extends Phaser.Scene {
 
     this.player = new Player(this, x, y);
 
-    // Place 15 collectibles.
+    // Place 111 collectibles.
     this.collectibles = this.physics.add.group({
       key: 'trashcan',
       setScale: { x: 0.4, y: 0.4 },
-      repeat: 5,
+      repeat: 110,
       setXY: { x: 64, y: 0, stepX: 70 }
     });
 
@@ -175,7 +175,7 @@ export default class MainScene extends Phaser.Scene {
     this.text.setText('Collectibles Left: ' + this.collectibles_num)
 
     if (this.collectibles_num == 0) {
-      this.end = this.add.text(200, 200, 'YOU FINISHED THE GAME', { fontSize: '100 px', fontFamily: 'VT323', fill: '#fff' });
+      this.end = this.add.text(200, 200, 'YOU FINISHED THE GAME', { fontSize: '300 px', fontFamily: 'VT323', fill: '#fff' });
       this.end.setScrollFactor(0);
     }
   }
