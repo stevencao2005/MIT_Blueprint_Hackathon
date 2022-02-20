@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 const BASE_SPEED = 200;
 const DASH_SPEED = 1800;
-const HEIGHT = 80;
+const HEIGHT = 64;
 const JUMP_VELOCITY = 480;
 const GRAVITY = 350;
 

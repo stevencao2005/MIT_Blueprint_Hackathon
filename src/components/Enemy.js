@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 const SPEED = 100;
-const HEIGHT = 64;
+const HEIGHT = 80;
 
 export default class Enemy extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y, _texture, frame) {

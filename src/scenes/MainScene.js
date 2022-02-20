@@ -1,13 +1,15 @@
 import Phaser from 'phaser';
 
 import gearImg from '../assets/images/gear.png'
-import backgroundImg from "../assets/images/background.png";
+// import backgroundImg from "../assets/images/background.png";
+import backgroundImg from "../assets/images/city.png";
 
 // import playerSheet from '../assets/sprites/player/sheet.png';
 import playerSheet from '../assets/sprites/player/Chicken.png';
 import playerAtlas from '../assets/sprites/player/atlas.json';
 
-import enemySheet from '../assets/sprites/enemy/sheet.png';
+// import enemySheet from '../assets/sprites/enemy/sheet.png';
+import enemySheet from '../assets/sprites/enemy/frog.png';
 import enemyAtlas from '../assets/sprites/enemy/atlas.json';
 
 import tilemap01 from '../assets/tilemaps/01.json';
