@@ -34,7 +34,19 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.setCollideWorldBounds(true);
     this.setScale(1.2);
     this.body.setBounce(0.2);
-    this.body.setGravityY(GRAVITY);
+    this.body.setGravityY(GRAVITY)
+    // if (y > 0) {
+    // this.body.setGravityY(GRAVITY);
+    // }
+    // if (y > 200){
+    //   this.body.setGravityY(GRAVITY-50)
+    // }
+    // if (y > 400){
+    //   this.body.setGravityY(GRAVITY-100)
+    // }
+    // if (y > 600){
+    //   this.body.setGravityY(GRAVITY-150)
+    // }
   }
 
   preUpdate(t, dt) {
@@ -143,7 +155,18 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.setVelocityX(0);
         this.anims.play('player-idle', true);
       }
-
+      if (this.y > 10) {
+        this.setGravityY(GRAVITY)
+      }
+      if (this.y > 300) {
+        this.setGravityY(GRAVITY-100)
+      }
+      if (this.y >600) {
+        this.setGravityY(GRAVITY-150)
+      }
+      if (this.y > 900){
+        this.setGravityY(GRAVITY-200)
+      }
       if (cursors.shift.isDown && this.canDash) {
         this.dashSteps = 20;
         this.canDash = false

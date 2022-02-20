@@ -1,6 +1,9 @@
 import Phaser from 'phaser';
 
-import gearImg from '../assets/images/gear.png'
+// import gearImg from '../assets/images/gear.png'
+import gearImg from '../assets/images/trashcan.png'
+
+
 // import backgroundImg from "../assets/images/background.png";
 import backgroundImg from "../assets/images/city.png";
 
@@ -31,7 +34,7 @@ export default class MainScene extends Phaser.Scene {
   preload() {
     // Place your code to load assets here...
     this.load.image('background', backgroundImg);
-    this.load.image('gear', gearImg);
+    this.load.image('trashcan', gearImg);
 
     this.load.atlas('player', playerSheet, playerAtlas);
     this.load.atlas('enemy', enemySheet, enemyAtlas);
@@ -118,9 +121,9 @@ export default class MainScene extends Phaser.Scene {
 
     // Place 11 collectibles.
     this.collectibles = this.physics.add.group({
-      key: 'gear',
+      key: 'trashcan',
       setScale: { x: 0.4, y: 0.4 },
-      repeat: 11,
+      repeat: 100,
       setXY: { x: 64, y: 0, stepX: 70 }
     });
 
