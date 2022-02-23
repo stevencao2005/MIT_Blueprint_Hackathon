@@ -16,6 +16,8 @@ import enemySheet from '../assets/sprites/enemy/frog.png';
 import enemyAtlas from '../assets/sprites/enemy/atlas.json';
 
 import tilemap01 from '../assets/tilemaps/01.json';
+// import tilemap01 from '../assets/tilemaps/03.json';
+
 import tileset01 from '../assets/tilesets/01.png';
 
 import Background from '../components/Background';
@@ -119,19 +121,18 @@ export default class MainScene extends Phaser.Scene {
 
     this.player = new Player(this, x, y);
 
-    // Place 111 collectibles.
+    // Place 18 collectibles.
     this.collectibles = this.physics.add.group({
       key: 'trashcan',
       setScale: { x: 0.4, y: 0.4 },
-      repeat: 110,
-      setXY: { x: 64, y: 0, stepX: 70 }
+      repeat: 50,
+      setXY: { x: 64, y: 0, stepX: 20 }
+      // setXY: { x: 64, y: 0, stepX: 70 }
     });
 
     this.collectibles.children.iterate((child) => {
       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
     });
-
-    this.collectibles_num = this.collectibles.countActive(true)
     this.text = this.add.text(16, 50, 'Collectibles Left: 100', { fontSize: '20px', fontFamily: 'VT323', fill: '#fff' });
     this.text.setScrollFactor(0);
 
@@ -173,10 +174,12 @@ export default class MainScene extends Phaser.Scene {
     this.scoreText.setText('Score: ' + this.score);
     this.collectibles_num = this.collectibles.countActive(true)
     this.text.setText('Collectibles Left: ' + this.collectibles_num)
-
     if (this.collectibles_num == 0) {
       this.end = this.add.text(16, 100, 'YOU FINISHED THE GAME!', { fontSize: '20px', fontFamily: 'VT323', fill: '#fff' });
       this.end.setScrollFactor(0);
     }
+
+
+
   }
 }
